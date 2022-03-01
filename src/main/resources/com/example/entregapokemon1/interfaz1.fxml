@@ -167,5 +167,16 @@
          <font>
             <Font name="System Bold" size="14.0" />
          </font></Label>
+      <Button fx:id="btPoke" layoutX="363.0" layoutY="533.0" mnemonicParsing="false" onMouseClicked="#irPoke" text="POKEDEX">
+         <font>
+            <Font name="Gadugi Bold" size="14.0" />
+         </font>
+      </Button>
+      <ImageView fx:id="estre1" fitHeight="41.0" fitWidth="37.0" layoutX="174.0" layoutY="184.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="estre11" fitHeight="41.0" fitWidth="37.0" layoutX="473.0" layoutY="184.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="estre111" fitHeight="41.0" fitWidth="37.0" layoutX="741.0" layoutY="184.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="estre1111" fitHeight="41.0" fitWidth="37.0" layoutX="741.0" layoutY="446.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="estre11111" fitHeight="41.0" fitWidth="37.0" layoutX="473.0" layoutY="446.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="estre111111" fitHeight="41.0" fitWidth="37.0" layoutX="174.0" layoutY="446.0" pickOnBounds="true" preserveRatio="true" />
     </AnchorPane>
 </VBox>

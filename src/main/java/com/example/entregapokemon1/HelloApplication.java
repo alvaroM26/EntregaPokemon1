@@ -15,6 +15,7 @@ public class HelloApplication extends Application {
         stage.setTitle("Juego Pokemon");
         stage.setScene(scene);
         stage.show();
+        stage.setResizable(false);
     }
 
     public static void main(String[] args) {
