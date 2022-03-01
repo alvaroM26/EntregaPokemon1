@@ -22,7 +22,7 @@ public class Ventana2Controller {
     Pokemon pokemonSeleccionado;
     Pokemon2 oponente;
 
-    ArrayList<Pokemon2> ListaPokemon = new ArrayList<>();
+    ArrayList<Pokemon2> ListaPokemon = new ArrayList<>(); //CREAR ARRAYLIST PARA HACER DE FORMA RANDOM LOS ENEMIGOS
 
     Fondo f1 = new Fondo(new File("src\\main\\java\\com\\example\\entregapokemon1\\Imagenes\\Campo_de_batalla_DPPt_2.png"));
 
@@ -78,7 +78,7 @@ public class Ventana2Controller {
     @FXML
     Text PSEnemigo;
 
-    private HelloController HelloController;
+    private HelloController HelloController; //COGER CONFIGURACION DE LA PRIMERA VENTANA
 
     public void Pkm(Pokemon pokemonSeleccionado) {
 
@@ -93,12 +93,13 @@ public class Ventana2Controller {
         nivelAliado.setText(pokemonSeleccionado.nivel);
         vidaAliado.setProgress(pokemonSeleccionado.vidaRestante / pokemonSeleccionado.vida);
 
+        //AÑADIR LOS POKEMONS ENEMIGOS AL ARRAYLIST
         ListaPokemon.add(p21);
         ListaPokemon.add(p22);
         ListaPokemon.add(p23);
         ListaPokemon.add(p24);
 
-        oponente = ListaPokemon.get((int) (Math.random() * ListaPokemon.size()));
+        oponente = ListaPokemon.get((int) (Math.random() * ListaPokemon.size())); //SACAR DE FORMA RANDOM LOS POKEMONS
 
         Image imagen2 = new Image(oponente.foto2.toURI().toString());
         pokemonEnemigo.setImage(imagen2);
@@ -135,13 +136,14 @@ public class Ventana2Controller {
         int rdmVida = r.nextInt(50) + 25;
         pokemonSeleccionado.vidaRestante += rdmVida;
         vidaAliado.setProgress(pokemonSeleccionado.vidaRestante / pokemonSeleccionado.vida);
-        HelloController.actualizarInterfaz(pokemonSeleccionado);
         System.out.println("Curacion1 de " + rdmVida);
+        HelloController.actualizarInterfaz();
 
         rdmVida = r.nextInt(50) + 25;
         oponente.vidaRestante2 += rdmVida;
         vidaEnemigo.setProgress(oponente.vidaRestante2 / oponente.vida2);
         System.out.println("Curacion2 de " + rdmVida);
+
     }
 
     @FXML
@@ -154,15 +156,14 @@ public class Ventana2Controller {
         pokemonSeleccionado.vidaRestante -= danoSeguro;
         vidaAliado.setProgress(pokemonSeleccionado.vidaRestante / pokemonSeleccionado.vida);
         System.out.println("Dano seguro1 de " + danoSeguro);
-        HelloController.actualizarInterfaz(pokemonSeleccionado);
+        HelloController.actualizarInterfaz();
         controlarDeLaVidaAliado();
 
         oponente.vidaRestante2 -= danoSeguro;
         vidaEnemigo.setProgress(oponente.vidaRestante2 / oponente.vida2);
         System.out.println("Dano seguro2 de " + danoSeguro);
-        controlarDeLaVidaEnemigo();
+        controlarDeLaVidaEnemigo();}
 
-    }
 
     @FXML
     protected void btArriesgado() {
@@ -173,14 +174,14 @@ public class Ventana2Controller {
         int rdmArriesgado = r.nextInt(15) + 10;
         pokemonSeleccionado.vidaRestante -= rdmArriesgado;
         vidaAliado.setProgress(pokemonSeleccionado.vidaRestante / pokemonSeleccionado.vida);
-        System.out.println("Daño arriesgado1 de " + rdmArriesgado);
-        HelloController.actualizarInterfaz(pokemonSeleccionado);
+        System.out.println("Dano arriesgado1 de " + rdmArriesgado);
+        HelloController.actualizarInterfaz();
         controlarDeLaVidaAliado();
 
         rdmArriesgado = r.nextInt(15) + 10;
         oponente.vidaRestante2 -= rdmArriesgado;
         vidaEnemigo.setProgress(oponente.vidaRestante2 / oponente.vida2);
-        System.out.println("Daño arriesgado2 de " + rdmArriesgado);
+        System.out.println("Dano arriesgado2 de " + rdmArriesgado);
         controlarDeLaVidaEnemigo();
 
     }
@@ -194,14 +195,14 @@ public class Ventana2Controller {
         int rdmMuyArriesgado = r.nextInt(50);
         pokemonSeleccionado.vidaRestante -= rdmMuyArriesgado;
         vidaAliado.setProgress(pokemonSeleccionado.vidaRestante / pokemonSeleccionado.vida);
-        System.out.println("Daño muy arriesgado1 de " + rdmMuyArriesgado);
-        HelloController.actualizarInterfaz(pokemonSeleccionado);
+        System.out.println("Dano muy arriesgado1 de " + rdmMuyArriesgado);
+        HelloController.actualizarInterfaz();
         controlarDeLaVidaAliado();
 
         rdmMuyArriesgado = r.nextInt(50);
         oponente.vidaRestante2 -= rdmMuyArriesgado;
         vidaEnemigo.setProgress(oponente.vidaRestante2 / oponente.vida2);
-        System.out.println("Daño muy arriesgado2 de " + rdmMuyArriesgado);
+        System.out.println("Dano muy arriesgado2 de " + rdmMuyArriesgado);
         controlarDeLaVidaEnemigo();
 
     }
@@ -262,7 +263,6 @@ public class Ventana2Controller {
             System.exit(0);
         }else{
             HelloController.stage2.close();
-            HelloController.actualizarInterfaz(pokemonSeleccionado);
         }
     }
     private void showAlert2(Alert alert) {
@@ -273,7 +273,6 @@ public class Ventana2Controller {
             System.exit(0);
         }else{
             HelloController.stage2.close();
-            HelloController.actualizarInterfaz(pokemonSeleccionado);
         }
     }
 

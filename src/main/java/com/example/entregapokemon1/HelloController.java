@@ -18,17 +18,14 @@ import java.util.ArrayList;
 
 public class HelloController {
 
-    Pokemon pokemonSeleccionado;
-    int cont=0;
+    Pokemon pokemonSeleccionado; //pasar un pokemon de una pantalla a otra
 
-    ArrayList<Pokemon> ListaPokemonMios = new ArrayList<>();
-
-    Pokemon p1 = new Pokemon(0,"Charizard","Nv 63",255, 255,new File("src\\main\\java\\com\\example\\entregapokemon1\\Imagenes\\charizard-megay.gif"));
-    Pokemon p2 = new Pokemon(1,"Garbodor","Nv 49",180,180,new File("src\\main\\java\\com\\example\\entregapokemon1\\Imagenes\\garbodor.gif"));
-    Pokemon p3 = new Pokemon(2,"Landorus ","Nv 68",235,235,new File("src\\main\\java\\com\\example\\entregapokemon1\\Imagenes\\landorus.gif"));
-    Pokemon p4 = new Pokemon(3,"Sceptile ","Nv 54",259,259,new File("src\\main\\java\\com\\example\\entregapokemon1\\Imagenes\\pikachu-unovacap.gif"));
-    Pokemon p5 = new Pokemon(4,"Suicune ","Nv 45",220,220,new File("src\\main\\java\\com\\example\\entregapokemon1\\Imagenes\\suicune.gif"));
-    Pokemon p6 = new Pokemon(5,"Zapdos","Nv 54",280,280,new File("src\\main\\java\\com\\example\\entregapokemon1\\Imagenes\\zapdos.gif"));
+    Pokemon p1 = new Pokemon("Charizard","Nv 63",255, 255,new File("src\\main\\java\\com\\example\\entregapokemon1\\Imagenes\\charizard-megay.gif"));
+    Pokemon p2 = new Pokemon("Garbodor","Nv 49",180,180,new File("src\\main\\java\\com\\example\\entregapokemon1\\Imagenes\\garbodor.gif"));
+    Pokemon p3 = new Pokemon("Landorus ","Nv 68",235,235,new File("src\\main\\java\\com\\example\\entregapokemon1\\Imagenes\\landorus.gif"));
+    Pokemon p4 = new Pokemon("Sceptile ","Nv 54",259,259,new File("src\\main\\java\\com\\example\\entregapokemon1\\Imagenes\\pikachu-unovacap.gif"));
+    Pokemon p5 = new Pokemon("Suicune ","Nv 45",220,220,new File("src\\main\\java\\com\\example\\entregapokemon1\\Imagenes\\suicune.gif"));
+    Pokemon p6 = new Pokemon("Zapdos","Nv 54",280,280,new File("src\\main\\java\\com\\example\\entregapokemon1\\Imagenes\\zapdos.gif"));
 
     @FXML
     ImageView pokemonUno;
@@ -161,6 +158,7 @@ public class HelloController {
     }
 
     @FXML
+    //Configurar pokemon al hacer click en uno
     protected void selectPokemon1() {
         System.out.println("ImagenSeleccionada");
         bordePokemon1.setStyle("-fx-background-color:#c76fed");
@@ -171,11 +169,11 @@ public class HelloController {
         bordePokemon6.setStyle("-fx-background-color:#675073");
         bt1.setText("SIGUIENTE");
         txt1.setText("Pokemon seleccionado");
-        cont=1;
         pokemonSeleccionado =p1;
     }
 
     @FXML
+    //Configurar pokemon al hacer click en uno
     protected void selectPokemon2() {
         System.out.println("ImagenSeleccionada");
         bordePokemon1.setStyle("-fx-background-color:#675073");
@@ -186,11 +184,11 @@ public class HelloController {
         bordePokemon6.setStyle("-fx-background-color:#675073");
         bt1.setText("SIGUIENTE");
         txt1.setText("Pokemon seleccionado");
-        cont=1;
         pokemonSeleccionado =p2;
     }
 
     @FXML
+    //Configurar pokemon al hacer click en uno
     protected void selectPokemon3() {
         System.out.println("ImagenSeleccionada");
         bordePokemon1.setStyle("-fx-background-color:#675073");
@@ -201,11 +199,11 @@ public class HelloController {
         bordePokemon6.setStyle("-fx-background-color:#675073");
         bt1.setText("SIGUIENTE");
         txt1.setText("Pokemon seleccionado");
-        cont=1;
         pokemonSeleccionado =p3;
     }
 
     @FXML
+    //Configurar pokemon al hacer click en uno
     protected void selectPokemon4() {
         System.out.println("ImagenSeleccionada");
         bordePokemon1.setStyle("-fx-background-color:#675073");
@@ -216,11 +214,11 @@ public class HelloController {
         bordePokemon6.setStyle("-fx-background-color:#675073");
         bt1.setText("SIGUIENTE");
         txt1.setText("Pokemon seleccionado");
-        cont=1;
         pokemonSeleccionado =p4;
     }
 
     @FXML
+    //Configurar pokemon al hacer click en uno
     protected void selectPokemon5() {
         System.out.println("ImagenSeleccionada");
         bordePokemon1.setStyle("-fx-background-color:#675073");
@@ -231,11 +229,11 @@ public class HelloController {
         bordePokemon6.setStyle("-fx-background-color:#675073");
         bt1.setText("SIGUIENTE");
         txt1.setText("Pokemon seleccionado");
-        cont=1;
         pokemonSeleccionado =p5;
     }
 
     @FXML
+    //Configurar pokemon al hacer click en uno
     protected void selectPokemon6() {
         System.out.println("ImagenSeleccionada");
         bordePokemon1.setStyle("-fx-background-color:#675073");
@@ -246,7 +244,6 @@ public class HelloController {
         bordePokemon6.setStyle("-fx-background-color:#c76fed");
         bt1.setText("SIGUIENTE");
         txt1.setText("Pokemon seleccionado");
-        cont=1;
         pokemonSeleccionado =p6;
     }
 
@@ -270,7 +267,7 @@ public class HelloController {
 
             Ventana2Controller v = loader.getController();
             v.Pkm(pokemonSeleccionado);
-            v.enviarDatos(this);
+            v.enviarDatos(this); //PASAR INFORMACION DE UN LADO A OTRO
 
 
         } catch (IOException e) {
@@ -283,34 +280,34 @@ public class HelloController {
         return Float.parseFloat(String.valueOf(pokemon.vidaRestante / pokemon.vida));
     }
 
-    public void actualizarInterfaz(Pokemon pokemon){
-        ListaPokemonMios.set(pokemon.getIndex(),pokemon);
+    public void actualizarInterfaz( ){
+        // ACTUALIZAR VIDA DE LA PRIMERA PANTALLA
+       progress1.setProgress(p1.vidaRestante/p1.vida);
+       progress2.setProgress(p2.vidaRestante/p2.vida);
+       progress3.setProgress(p3.vidaRestante/p3.vida);
+       progress4.setProgress(p4.vidaRestante/p4.vida);
+       progress5.setProgress(p5.vidaRestante/p5.vida);
+       progress6.setProgress(p6.vidaRestante/p6.vida);
     }
 
 }
 
 class Pokemon{
 
-    int index;
     String nombre;
     String nivel;
     float vida;
     float vidaRestante;
     File foto;
 
-    public Pokemon(int index,String nombre, String nivel, float vida, float vidaRestante,File foto){
+    public Pokemon(String nombre, String nivel, float vida, float vidaRestante,File foto){
 
-        this.index=index;
         this.nombre=nombre;
         this.nivel=nivel;
         this.vida=vida;
         this.foto=foto;
         this.vidaRestante=vidaRestante;
 
-    }
-
-    public int getIndex(){
-        return index;
     }
 
 }
